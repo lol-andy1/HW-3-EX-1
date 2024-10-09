@@ -6,18 +6,18 @@ INSERT INTO students VALUES(7, 'Andy', 21, 'M', 999);
 UPDATE students SET Points = Points + 10 WHERE name = 'Basma';
 UPDATE students SET Points = Points - 10 WHERE name = 'Alex';
 
-CREATE TABLE graduates(
-    ID INTEGER  PRIMARY KEY AUTOINCREMENT,
-    Name  TEXT NOT NULL UNIQUE,
-    Age INTEGER,
+CREATE TABLE graduates (
+	ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name TEXT NOT NULL UNIQUE,
+	Age INTEGER,
 	Gender TEXT,
 	Points INTEGER,
-	Graduation TEXT
+	Graduation TEXT	
 );
 
-INSERT INTO graduates(Name, Age, Gender, Points) SELECT Name, Age, Gender, Points FROM Students WHERE Students.Name='Layal';
-UPDATE graduates SET Graduation='08-09-2018' WHERE Name='Layal';
-DELETE FROM graduates WHERE Name='Layal';
+INSERT INTO graduates (ID, Name, Age, Gender, Points) SELECT * FROM students WHERE name = 'Layal';
+UPDATE graduates SET Graduation = '08/09/2018' WHERE name = 'Layal';
+DELETE FROM students where name = 'Layal';
 
 SELECT employees.name, employees.Company, companies.date FROM employees Inner join companies ON employees.Company=companies.name;
 SELECT employees.name FROM employees Inner join companies ON employees.Company=companies.name and companies.Date < 2000;
