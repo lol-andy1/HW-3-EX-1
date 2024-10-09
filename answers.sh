@@ -23,8 +23,8 @@ SELECT e.Name, e.Company, c.Date FROM employees e INNER JOIN companies c ON c.Na
 SELECT e.Name FROM employees e INNER JOIN companies c ON c.Name = e.Company AND C.Date < 2000;
 SELECT c.Name FROM employees e INNER JOIN companies c ON c.Name = e.Company AND e.Role = 'Graphic Designer';
 
-select name from students where points=(SELECT MAX(points) from students);
-select AVG(points) from students;
-select COUNT(Name) from students where points=500;
-select Name from students WHERE Name GLOB '*s*';
-select name from students ORDER BY points DESC;
+SELECT name FROM students WHERE Points = (SELECT max(Points) FROM students);
+SELECT avg(Points) FROM students;
+SELECT count(name) FROM students WHERE Points = 500;
+SELECT name from students WHERE name LIKE '%s%';
+SELECT name from students ORDER BY Points DESC;
